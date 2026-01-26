@@ -1,7 +1,6 @@
 {
-  "ensemble": 0.0,
-  "lgbm": 0.25,
-  "sarimax": 0.25,
-  "ets": 0.25,
-  "prophet_or_fallback": 0.25
+  "sarimax": 0.15422959869573122,
+  "ets": 0.5763128088697925,
+  "prophet_or_fallback": 0.04492391627471613,
+  "lgbm": 0.22453367615976003
 }
