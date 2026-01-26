@@ -4,7 +4,7 @@ from .arima_sarimax import ARIMASARIMAXModel, ARIMASARIMAXConfig
 from .ets import ETSModel, ETSConfig
 from .prophet_fallback import ProphetFallbackModel, ProphetConfig, _PROPHET_AVAILABLE
 from .lgbm import LGBMForecaster
-from .ensemble import EnsembleForecaster
+from .ensemble import EnsembleConfig, EnsembleForecaster
 
 __all__ = [
     "ARIMASARIMAXModel",
@@ -15,5 +15,6 @@ __all__ = [
     "ProphetConfig",
     "_PROPHET_AVAILABLE",
     "LGBMForecaster",
+    "EnsembleConfig",
     "EnsembleForecaster",
 ]

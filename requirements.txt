@@ -8,3 +8,4 @@ plotly
 lightgbm
 mapie
 prophet
+pytest
