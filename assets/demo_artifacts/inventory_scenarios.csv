@@ -1,0 +1,4 @@
+scenario,order_quantity,reorder_point,safety_stock,expected_cycle_stock,days_of_cover,annual_demand,eoq,ordering_cost_annual,holding_cost_annual,total_cost_annual
+conservative,160.0,190.0,30.0,80.0,16.0,9000.0,160.0,562.5,480.0,1042.5
+balanced,140.0,165.0,25.0,70.0,14.0,9000.0,140.0,642.9,420.0,1062.9
+aggressive,120.0,140.0,20.0,60.0,12.0,9000.0,120.0,750.0,360.0,1110.0
