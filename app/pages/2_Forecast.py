@@ -1,36 +1,24 @@
-import logging
+import sys
+from pathlib import Path
 
 import streamlit as st
 
-logger = logging.getLogger(__name__)
-if not logger.handlers:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-    )
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = PROJECT_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from demandcast.logging_utils import get_logger  # noqa: E402
+from demandcast.ui.forecast import render_forecast  # noqa: E402
+
+logger = get_logger(__name__)
 
 
 def main() -> None:
-    """Render the forecasting page placeholder."""
+    """Render the forecasting page via the shared UI module."""
     try:
-        logger.info("Rendering Forecast page")
-
-        st.title("Forecast")
-        st.write(
-            "This page will host demand forecasting workflows, model configuration, "
-            "and visualizations. For now, it is a placeholder."
-        )
-
-        st.markdown(
-            """
-            Planned functionality:
-
-            - Select forecasting horizon and aggregation level
-            - Trigger model training / updating
-            - Visualize forecasts vs. actuals
-            - Export forecasts for downstream inventory planning
-            """
-        )
+        logger.info("Rendering Forecast page (legacy entrypoint)")
+        render_forecast()
     except Exception as exc:  # pragma: no cover - defensive
         logger.exception("Unexpected error in Forecast page: %s", exc)
         st.error(

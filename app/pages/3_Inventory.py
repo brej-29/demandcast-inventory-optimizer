@@ -1,36 +1,24 @@
-import logging
+import sys
+from pathlib import Path
 
 import streamlit as st
 
-logger = logging.getLogger(__name__)
-if not logger.handlers:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-    )
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = PROJECT_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from demandcast.logging_utils import get_logger  # noqa: E402
+from demandcast.ui.inventory import render_inventory  # noqa: E402
+
+logger = get_logger(__name__)
 
 
 def main() -> None:
-    """Render the inventory optimization page placeholder."""
+    """Render the inventory optimization page via the shared UI module."""
     try:
-        logger.info("Rendering Inventory page")
-
-        st.title("Inventory")
-        st.write(
-            "This page will connect demand forecasts to inventory decisions such as "
-            "reorder points, safety stock, and order quantities."
-        )
-
-        st.markdown(
-            """
-            Planned functionality:
-
-            - Configure service levels and lead times
-            - Compute EOQ, ROP, and safety stock based on forecasts
-            - Visualize stock-out risk vs. holding cost
-            - Export recommended inventory policies
-            """
-        )
+        logger.info("Rendering Inventory page (legacy entrypoint)")
+        render_inventory()
     except Exception as exc:  # pragma: no cover - defensive
         logger.exception("Unexpected error in Inventory page: %s", exc)
         st.error(

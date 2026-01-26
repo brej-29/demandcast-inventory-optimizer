@@ -1,36 +1,24 @@
-import logging
+import sys
+from pathlib import Path
 
 import streamlit as st
 
-logger = logging.getLogger(__name__)
-if not logger.handlers:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-    )
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = PROJECT_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from demandcast.logging_utils import get_logger  # noqa: E402
+from demandcast.ui.backtests import render_backtests  # noqa: E402
+
+logger = get_logger(__name__)
 
 
 def main() -> None:
-    """Render the backtesting and evaluation page placeholder."""
+    """Render the backtesting and evaluation page via the shared UI module."""
     try:
-        logger.info("Rendering Backtests page")
-
-        st.title("Backtests")
-        st.write(
-            "This page will provide backtesting tools to evaluate forecasting models "
-            "and resulting inventory policies over historical data."
-        )
-
-        st.markdown(
-            """
-            Planned functionality:
-
-            - Configure rolling- and expanding-window backtests
-            - Compare models on RMSE, MAPE, sMAPE and inventory-related KPIs
-            - Visualize forecast errors over time and by segment
-            - Save evaluation reports to the `artifacts/reports/` directory
-            """
-        )
+        logger.info("Rendering Backtests page (legacy entrypoint)")
+        render_backtests()
     except Exception as exc:  # pragma: no cover - defensive
         logger.exception("Unexpected error in Backtests page: %s", exc)
         st.error(

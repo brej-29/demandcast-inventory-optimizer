@@ -10,13 +10,23 @@ Baseline metrics for time series forecasts:
 - **RMSE (Root Mean Squared Error)**
   - Sensitive to large errors.
   - Useful for comparing models on the original scale of the target.
+- **MAE (Mean Absolute Error)**
+  - Simple and robust average absolute error.
 - **MAPE (Mean Absolute Percentage Error)**
   - Expressed as a percentage.
   - Less meaningful when true values can be near zero.
 - **sMAPE (Symmetric Mean Absolute Percentage Error)**
   - Addresses some issues with MAPE by symmetrizing the denominator.
+- **WAPE (Weighted Absolute Percentage Error)**
+  - Total absolute error divided by total demand.
+  - Particularly useful for inventory contexts and model ranking.
 
-These metrics are implemented in `src/demandcast/evaluation/metrics.py`.
+These metrics are implemented in `src/demandcast/evaluation/metrics.py`, along
+with:
+
+- **Coverage** – fraction of observations falling inside prediction intervals.
+- **Mean interval width** – average width of prediction intervals, used to
+  balance sharpness against coverage.
 
 ### Initial targets (subject to revision)
 
@@ -40,6 +50,10 @@ Once inventory optimization is implemented, we will monitor:
 - **Stockout count / rate** – number or proportion of periods with stockouts.
 - **Inventory turns / holding cost** – proxy for capital efficiency.
 - **Ordering cost** – cost associated with placing orders (per-order overhead).
+- **Total annual cost** – ordering + holding cost for a given policy.
+- **Stockout risk proxy** – difference between target service level and
+  achieved coverage from forecast intervals, used qualitatively to reason
+  about robustness.
 
 ### Inventory targets (initial ideas)
 

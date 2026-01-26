@@ -1,0 +1,7 @@
+{
+  "ensemble": 0.0,
+  "lgbm": 0.25,
+  "sarimax": 0.25,
+  "ets": 0.25,
+  "prophet_or_fallback": 0.25
+}

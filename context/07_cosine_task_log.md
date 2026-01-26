@@ -10,9 +10,10 @@ include at least:
 
 ## Log
 
-| Date       | Task ID / Name              | Summary                                              | Files / Areas Touched                                                                 |
-|------------|-----------------------------|------------------------------------------------------|---------------------------------------------------------------------------------------|
-| 2026-01-24 | Step 0 - Repo bootstrap     | Initial project skeleton, app, and scaffolding set up| `app/`, `src/demandcast/`, `scripts/`, `context/`, `notebooks/`, `README.md`, config |
+| Date       | Task ID / Name                  | Summary                                                                | Files / Areas Touched                                                                                          |
+|------------|---------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| 2026-01-24 | Step 0 - Repo bootstrap         | Initial project skeleton, app, and scaffolding set up                  | `app/`, `src/demandcast/`, `scripts/`, `context/`, `notebooks/`, `README.md`, config                          |
+| 2026-01-26 | Step 3–6 - Models + Inventory   | Added LightGBM, ensemble, inventory engine, demo mode, UI, CI, tests   | `src/demandcast/` (data, features, models, evaluation, inventory, ui), `scripts/`, `assets/`, `notebooks/`, `tests/`, `.github/`, `README*`, `context/` |
 
 When you complete a new Cosine task:
 
