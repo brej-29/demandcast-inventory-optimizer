@@ -59,7 +59,10 @@ class LGBMForecaster:
             raise ValueError("Series DataFrame must contain 'ds' and 'y' columns.")
 
         df = df.sort_values("ds").reset_index(drop=True)
-        self._history_df = df[["ds", "y"]].copy()
+        # Keep the full DataFrame (including store/item or other covariates)
+        # so that feature construction during prediction sees the same columns
+        # as during training.
+        self._history_df = df.copy()
         features_df = self._build_features(df)
         self._feature_cols = get_default_feature_columns(features_df)
 
