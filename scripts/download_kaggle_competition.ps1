@@ -46,7 +46,7 @@ if (-not $zipFiles) {
 }
 
 Write-Host ""
-Write-Host "Contents of $DataDir:"
+Write-Host "Contents of ${DataDir}:"
 Get-ChildItem -Path $DataDir -ErrorAction SilentlyContinue
 
 Write-Host ""
