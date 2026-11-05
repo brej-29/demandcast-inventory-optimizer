@@ -34,6 +34,14 @@ The bounded credential-pattern scan reports filenames and key types, never possi
 
 ## Deployment
 
-GitHub Pages is enabled with workflow publishing, public access and enforced HTTPS. Default-branch publication and live smoke results will be recorded here after the workflow completes.
+GitHub Pages published from `main` commit `28d5534e4aa0e02c597c2703587de52303af3d21`. [Production workflow](https://github.com/brej-29/demandcast-inventory-optimizer/actions/runs/42061913181) completed successfully on 2026-11-05 at 16:12:54 UTC, including verification, deployment and the public core-flow smoke test. HTTPS GET returned 200. PR #2 is merged. The repository homepage and description contain the live URL and free-hosting limits.
 
 The initial remote verification run passed every check, including E2E and mobile quality. Browser installation alone took 8 minutes 52 seconds; the run completed successfully just before a cancellation attempt could take effect. Subsequent runs use the runner's preinstalled stable Chrome via Playwright's supported browser channel. Browser and audit jobs have explicit timeouts; all product checks remain required. [Initial green run](https://github.com/brej-29/demandcast-inventory-optimizer/actions/runs/42059530502).
+
+## Public verification
+
+The full seven-test browser suite passed against https://brej-29.github.io/demandcast-inventory-optimizer/ in 28.3 seconds. This includes real public CSV import/edit/export, failures and recovery, offline loaded-data calculations, Axe scans and all three screenshot widths. Public mobile Lighthouse: **92 performance / 100 accessibility / 100 best practices / 91 SEO**; all four exceed the declared 90 floor. The committed `lighthouse.json` is the public run; local and remote CI audits previously scored 100 in all four categories.
+
+The public SEO deduction is `robots-txt`: the shared Pages origin serves an invalid account-level robots response. That origin belongs outside this repository, so it was inspected but not modified. Host-controlled cache lifetimes and network behavior also differ from local preview. No field-performance or uptime guarantee is implied.
+
+Following the initial successful deployment, publishing/test action references were refreshed to their official current releases and the runner pinned to Ubuntu 24.04 to remove deprecated runtime and image-migration dependencies. The application files are unchanged in this release-record follow-up.

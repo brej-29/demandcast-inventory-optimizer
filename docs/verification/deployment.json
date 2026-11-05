@@ -1,0 +1,27 @@
+{
+  "url": "https://brej-29.github.io/demandcast-inventory-optimizer/",
+  "sourceCommit": "28d5534e4aa0e02c597c2703587de52303af3d21",
+  "workflow": "https://github.com/brej-29/demandcast-inventory-optimizer/actions/runs/42061913181",
+  "completedAt": "2026-11-05T16:12:54Z",
+  "httpsStatus": 200,
+  "ciPublicCoreFlow": "passed",
+  "publicBrowserTests": {
+    "passed": 7,
+    "total": 7,
+    "durationSeconds": 28.3
+  },
+  "lighthouse": {
+    "performance": 92,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 91
+  },
+  "limits": {
+    "hosting": "Public noncommercial static GitHub Pages",
+    "softBandwidthGBPerMonth": 100,
+    "maxPublishedGB": 1,
+    "sla": false,
+    "offlineReload": false
+  },
+  "note": "First verified production deployment. Follow-up documentation and CI maintenance do not alter application files."
+}

@@ -71,7 +71,7 @@ npm run build
 
 `npm run audit` audits a running local preview. Set `SMOKE_URL` to a deployment URL with a trailing slash and run `npm run test:e2e -- --grep 'core job'` for the live core flow.
 
-Local evidence: **14 core tests, 7 browser tests, zero Axe WCAG AA violations** across the three views. Screenshots cover **390px phone, 820px tablet and 1440px desktop**. Independent review found and resolved mobile arithmetic wrapping, scaled chart labels, hidden horizontal table comparisons and route-focus outlines. Latest mobile Lighthouse: **100 performance / 100 accessibility / 100 best practices / 100 SEO**. Earlier local performance varied **76–100**; these are lab observations, not field guarantees. [Audit JSON](docs/verification/lighthouse.json) · [Verification record](docs/verification/REVIEW.md) · [Baseline audit](docs/BASELINE.md).
+Local evidence: **14 core tests, 7 browser tests, zero Axe WCAG AA violations** across the three views. Screenshots cover **390px phone, 820px tablet and 1440px desktop**. Independent review found and resolved mobile arithmetic wrapping, scaled chart labels, hidden horizontal table comparisons and route-focus outlines. Local mobile Lighthouse: **100 performance / 100 accessibility / 100 best practices / 100 SEO**. Earlier local performance varied **76–100**; these are lab observations, not field guarantees. The verified public mobile audit scored **92 performance / 100 accessibility / 100 best practices / 91 SEO**. [Audit JSON](docs/verification/lighthouse.json) · [Verification record](docs/verification/REVIEW.md) · [Baseline audit](docs/BASELINE.md).
 
 CI reproduces evaluation artifacts byte-for-byte, runs core/E2E/accessibility checks and mobile Lighthouse >=90, builds static assets, deploys only `main`, then runs a live main-flow smoke test. The retained Python suite uses a frozen Python 3.11 environment.
 
@@ -89,7 +89,7 @@ Raw data is cached in git-ignored `data/raw/`. Only anonymous daily aggregates a
 
 ## Free deployment and limits
 
-**https://brej-29.github.io/demandcast-inventory-optimizer/** — GitHub Pages serves this public, noncommercial open-source workbench from `main`. No new signup, credit card, model API, database or sleeping service. Publication and smoke-test evidence are recorded in [the release record](docs/verification/REVIEW.md).
+**https://brej-29.github.io/demandcast-inventory-optimizer/** — GitHub Pages serves this public, noncommercial open-source workbench from `main`. No new signup, credit card, model API, database or sleeping service. The public import-and-export smoke test passed; publication and smoke-test evidence are recorded in [the release record](docs/verification/REVIEW.md).
 
 [Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits): 1 GB published site, soft 100 GB/month bandwidth, 10-minute deployment timeout, possible rate limiting and no SLA. Custom Actions publishing is exempt from the soft 10-build/hour limit. Pages is not commercial SaaS hosting; the tool has no accounts, payments or transactions.
 
@@ -99,4 +99,4 @@ Loaded data and calculations work after disconnecting. Offline reload and new be
 
 The efficient-buffer claim is unsupported. Obtain consented availability, reconciled transactions, promotions and actual delivery history; freeze a multi-retailer holdout and compare methods at equal stock budgets. A simpler spreadsheet workflow should win if it produces the same decisions with less work.
 
-Code: [MIT](LICENSE). Aggregate data: [Daqing Chen, UCI Online Retail, CC BY 4.0](https://doi.org/10.24432/C5BW33). Typeface: [Manrope, SIL Open Font License](web/fonts/OFL.txt).
+Code: [MIT](LICENSE). Aggregate data: [Daqing Chen, UCI Online Retail](https://doi.org/10.24432/C5BW33), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Typeface: [Manrope, SIL Open Font License](web/fonts/OFL.txt).
