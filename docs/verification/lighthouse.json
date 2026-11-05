@@ -1,22 +1,47 @@
 {
-  "url": "http://127.0.0.1:4187/",
+  "url": "https://brej-29.github.io/demandcast-inventory-optimizer/",
   "formFactor": "mobile",
   "scores": {
-    "performance": 100,
+    "performance": 92,
     "accessibility": 100,
     "best-practices": 100,
-    "seo": 100
+    "seo": 91
   },
   "metrics": {
-    "fcp": 960,
-    "lcp": 960,
-    "tbt": 0,
+    "fcp": 1305.535,
+    "lcp": 1305.535,
+    "tbt": 284.5,
     "cls": 0.035817279444959174
   },
   "failures": [
     {
-      "id": "document-latency-insight",
-      "title": "Document request latency",
+      "id": "speed-index",
+      "title": "Speed Index",
+      "score": 0.82
+    },
+    {
+      "id": "total-blocking-time",
+      "title": "Total Blocking Time",
+      "score": 0.8
+    },
+    {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 0.09
+    },
+    {
+      "id": "mainthread-work-breakdown",
+      "title": "Minimize main-thread work",
+      "score": 0
+    },
+    {
+      "id": "robots-txt",
+      "title": "robots.txt is not valid",
+      "score": 0
+    },
+    {
+      "id": "cache-insight",
+      "title": "Use efficient cache lifetimes",
       "score": 0.5
     },
     {
@@ -32,7 +57,7 @@
     {
       "id": "render-blocking-insight",
       "title": "Render-blocking requests",
-      "score": 0
+      "score": 0.5
     }
   ]
 }
