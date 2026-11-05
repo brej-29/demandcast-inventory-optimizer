@@ -10,6 +10,10 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PLAYWRIGHT_CHANNEL: chrome
+      CHROME_PATH: /usr/bin/google-chrome
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -23,7 +27,8 @@ jobs:
           npm run evaluate
           git diff --exit-code -- web/data/evaluation.json web/data/cycles.csv
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
+      - name: Verify preinstalled browser
+        run: google-chrome --version
       - run: npm run test:e2e
       - name: Mobile quality audit
         run: |
@@ -58,6 +63,9 @@ jobs:
     needs: deploy
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PLAYWRIGHT_CHANNEL: chrome
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -65,7 +73,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - run: google-chrome --version
       - run: npm run test:e2e -- --grep 'core job'
         env:
           SMOKE_URL: https://brej-29.github.io/demandcast-inventory-optimizer/

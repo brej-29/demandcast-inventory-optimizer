@@ -3,7 +3,7 @@ import { chromium } from "@playwright/test";
 import { spawn } from "node:child_process";
 import { writeFile, mkdir } from "node:fs/promises";
 const browser = spawn(
-  chromium.executablePath(),
+  process.env.CHROME_PATH || chromium.executablePath(),
   [
     "--headless",
     "--no-sandbox",

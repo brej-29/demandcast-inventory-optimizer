@@ -5,6 +5,7 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   workers: 1,
   use: {
+    channel: process.env.PLAYWRIGHT_CHANNEL || undefined,
     baseURL: process.env.SMOKE_URL || "http://127.0.0.1:4187",
     headless: true,
     trace: "retain-on-failure",

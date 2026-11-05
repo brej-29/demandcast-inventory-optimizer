@@ -35,3 +35,5 @@ The bounded credential-pattern scan reports filenames and key types, never possi
 ## Deployment
 
 GitHub Pages is enabled with workflow publishing, public access and enforced HTTPS. Default-branch publication and live smoke results will be recorded here after the workflow completes.
+
+The initial remote verification run passed core tests, evaluation reproduction and build, then stalled installing browser binaries. It was cancelled and replaced with the runner's preinstalled stable Chrome via Playwright's supported browser channel. Browser and audit jobs have explicit timeouts; all product checks remain required.
