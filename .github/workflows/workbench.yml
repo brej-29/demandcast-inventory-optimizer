@@ -1,0 +1,79 @@
+name: Workbench
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PLAYWRIGHT_CHANNEL: chrome
+      CHROME_PATH: /usr/bin/google-chrome
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Reproduce frozen evaluation
+        run: |
+          npm run evaluate
+          git diff --exit-code -- web/data/evaluation.json web/data/cycles.csv
+      - run: npm run build
+      - name: Verify preinstalled browser
+        run: google-chrome --version
+      - run: npm run test:e2e
+      - name: Mobile quality audit
+        run: |
+          node scripts/serve.mjs &
+          npm run audit
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-verification
+          path: |
+            playwright-report/
+            .impeccable/review/
+            docs/verification/
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: dist
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
+  live-smoke:
+    needs: deploy
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PLAYWRIGHT_CHANNEL: chrome
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: google-chrome --version
+      - run: npm run test:e2e -- --grep 'core job'
+        env:
+          SMOKE_URL: https://brej-29.github.io/demandcast-inventory-optimizer/

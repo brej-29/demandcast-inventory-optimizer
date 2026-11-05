@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "em-dash-overuse",
+        "value": "*",
+        "files": [
+          "web/index.html"
+        ],
+        "createdAt": "2026-11-05T15:15:48.039Z",
+        "reason": "Reviewed placeholders for unavailable numeric values use the dash; body prose is not saturated. Scope is this planner markup."
+      }
+    ]
+  }
+}

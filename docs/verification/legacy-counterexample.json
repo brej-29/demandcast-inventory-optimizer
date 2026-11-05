@@ -1,0 +1,7 @@
+{
+  "example": "Synthetic counterexample, not retail data",
+  "predicted_daily_std": 0.0,
+  "observed_daily_std": 15.275252316519467,
+  "legacy_95pct_buffer_7days": 0.0,
+  "failure": "Flat predictions imply zero safety stock despite volatile observations."
+}

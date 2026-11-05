@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#173d37" />
+    <meta
+      name="description"
+      content="A private, browser-local replenishment workbench. Turn daily sales into explainable stock targets, check historical coverage, and export an order decision."
+    />
+    <title>DemandCast — Plan your next order</title>
+    <link rel="icon" href="./mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to workspace</a>
+    <aside class="rail" aria-label="Workspace navigation">
+      <a class="brand" href="#planner" aria-label="DemandCast home"
+        ><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+          <path
+            d="M4 25V7h7v18zm9 0V13h7v12zm9 0V3h7v22"
+            fill="currentColor"
+          /></svg
+        >DemandCast<span class="brand-dot">.</span></a
+      >
+      <div class="workspace-name">
+        <span class="workspace-avatar">D</span
+        ><span>Planning workspace<small>Single-item purchasing</small></span>
+      </div>
+      <nav>
+        <a href="#planner" data-route="planner" aria-current="page"
+          ><span data-icon="sliders"></span>Order planner</a
+        >
+        <a href="#evidence" data-route="evidence"
+          ><span data-icon="chart"></span>Evidence lab</a
+        >
+        <a href="#method" data-route="method"
+          ><span data-icon="book"></span>How it works</a
+        >
+      </nav>
+      <div class="rail-note">
+        <span data-icon="shield"></span><strong>Your data stays yours.</strong>
+        <p>
+          Calculations run in this browser. Your sales files never leave this
+          device.
+        </p>
+      </div>
+      <a
+        class="source-link"
+        href="https://github.com/brej-29/demandcast-inventory-optimizer"
+        target="_blank"
+        rel="noreferrer"
+        >Source & research <span aria-hidden="true">↗</span></a
+      >
+      <div class="rail-foot">
+        <span class="status-dot"></span> No account. No API key.
+      </div>
+    </aside>
+    <div class="shell">
+      <header class="topbar">
+        <span
+          >Workspace <span class="crumb" aria-hidden="true">/</span>
+          <strong id="crumb">Order planner</strong></span
+        ><span class="local-badge"
+          ><span class="status-dot"></span
+          ><span id="connection">Local computation</span></span
+        >
+      </header>
+      <main id="main" tabindex="-1">
+        <div
+          id="app-status"
+          role="status"
+          aria-live="polite"
+          class="sr-only"
+        ></div>
+        <div id="error" class="alert error" role="alert" hidden></div>
+        <div id="offline" class="alert" hidden>
+          You’re offline. Loaded data and calculations still work. Reconnect to
+          load the public benchmark.
+        </div>
+        <section id="planner" class="view" aria-labelledby="planner-title">
+          <div class="page-heading">
+            <div>
+              <h1 id="planner-title">Plan your next order<span>.</span></h1>
+              <p>A clear stock decision. With the evidence to back it up.</p>
+            </div>
+            <button class="primary" id="upload">
+              <span data-icon="upload"></span>Import sales CSV
+            </button>
+          </div>
+          <input
+            type="file"
+            accept=".csv,text/csv"
+            id="file"
+            aria-label="Import daily sales CSV"
+            hidden
+          />
+          <div class="source-bar">
+            <div class="source-meta">
+              <span class="source-symbol" data-icon="box"></span>
+              <div>
+                <strong id="series-name">Everyday stoneware</strong>
+                <div>
+                  <span id="source-label" class="sample-tag"
+                    >Synthetic example</span
+                  ><span id="date-range"></span>
+                </div>
+              </div>
+            </div>
+            <div class="source-actions">
+              <label class="sr-only" for="example">Choose a dataset</label
+              ><select id="example">
+                <option value="steady">Everyday stoneware</option>
+                <option value="intermittent">Intermittent sales</option>
+                <option value="shock">Sudden demand shift</option>
+                <option value="retail">Public retail benchmark</option></select
+              ><button class="text-button" id="clear">Clear</button>
+            </div>
+          </div>
+          <div id="empty" class="empty" hidden>
+            <span data-icon="upload"></span>
+            <h2>Start with your daily sales.</h2>
+            <p>
+              One item. One row per day. At least 120 days.<br />Your file is
+              processed locally and never uploaded.
+            </p>
+            <button class="primary" id="empty-upload">Import sales CSV</button
+            ><button class="secondary" id="sample">
+              Explore a synthetic example
+            </button>
+            <p>
+              <button class="text-button" id="template">
+                Download an example CSV
+              </button>
+            </p>
+          </div>
+          <div id="workspace" aria-busy="true">
+            <div id="loading" class="loading" role="status">
+              <div class="skeleton"></div>
+              <span>Checking sales and historical errors…</span
+              ><span id="slow" hidden
+                >This is taking longer than expected. Large files may need a
+                moment.</span
+              >
+            </div>
+            <div class="planning-grid">
+              <section class="chart-panel" aria-labelledby="demand-title">
+                <div class="panel-heading">
+                  <div>
+                    <h2 id="demand-title">Demand, with room for uncertainty</h2>
+                    <p id="chart-subtitle">
+                      Recent sales and the next protection period
+                    </p>
+                  </div>
+                  <span class="chart-unit">units / day</span>
+                </div>
+                <div id="chart" class="chart"></div>
+                <div class="chart-legend">
+                  <span><i class="actual-key"></i>Observed sales</span
+                  ><span><i class="forecast-key"></i>Point forecast</span
+                  ><span><i class="buffer-key"></i>Buffer allocation*</span>
+                </div>
+                <p class="chart-note">
+                  *Buffer shown evenly across future days for context. It
+                  protects the <strong>period total</strong>; it is not a daily
+                  confidence interval.
+                </p>
+                <div class="signal-strip">
+                  <div>
+                    <span>Daily sales · last 28 days</span
+                    ><strong id="daily-mean">—</strong>
+                  </div>
+                  <div>
+                    <span>Forecast method</span
+                    ><strong id="method-name">—</strong>
+                  </div>
+                  <div>
+                    <span>Protection period</span
+                    ><strong id="protection">—</strong>
+                  </div>
+                </div>
+              </section>
+              <section class="order-sheet" aria-labelledby="order-title">
+                <div class="order-heading">
+                  <h2 id="order-title">Your order, explained</h2>
+                  <span data-icon="receipt"></span>
+                </div>
+                <div class="order-amount">
+                  <strong id="order-qty">—</strong><span>units to order</span
+                  ><span id="order-state" class="order-state"
+                    >Review before buying</span
+                  >
+                </div>
+                <dl class="calculation">
+                  <div>
+                    <dt>Expected sales</dt>
+                    <dd id="expected">—</dd>
+                  </div>
+                  <div>
+                    <dt>
+                      Historical error buffer
+                      <button
+                        class="info"
+                        type="button"
+                        aria-label="Explain the historical error buffer"
+                        id="buffer-info"
+                      >
+                        ?
+                      </button>
+                    </dt>
+                    <dd id="buffer">—</dd>
+                  </div>
+                  <div class="subtotal">
+                    <dt>Target stock</dt>
+                    <dd id="target">—</dd>
+                  </div>
+                  <div>
+                    <dt>Inventory position</dt>
+                    <dd id="position">—</dd>
+                  </div>
+                  <div class="order-total">
+                    <dt>Pack-rounded order</dt>
+                    <dd id="rounded">—</dd>
+                  </div>
+                </dl>
+                <p id="pack-note" class="muted">
+                  Rounded up to complete supplier packs.
+                </p>
+                <button class="primary export" id="export" disabled>
+                  <span data-icon="download"></span>Export decision CSV
+                </button>
+                <p class="order-disclaimer">
+                  A planning aid. Verify delivery dates and availability before
+                  placing an order.
+                </p>
+              </section>
+            </div>
+            <section class="assumptions" aria-labelledby="assumptions-title">
+              <div class="section-intro">
+                <h2 id="assumptions-title">Make it your situation</h2>
+                <p>Change an assumption. See the order change.</p>
+              </div>
+              <form id="settings">
+                <div class="field">
+                  <label for="onHand">On hand <span>units</span></label
+                  ><input
+                    id="onHand"
+                    name="onHand"
+                    type="number"
+                    value="260"
+                    min="0"
+                    max="1000000"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="incoming">Incoming <span>units</span></label
+                  ><input
+                    id="incoming"
+                    name="incoming"
+                    type="number"
+                    value="0"
+                    min="0"
+                    max="1000000"
+                    step="1"
+                    required
+                  /><small>Due within protection period</small>
+                </div>
+                <div class="field">
+                  <label for="backorders">Backorders <span>units</span></label
+                  ><input
+                    id="backorders"
+                    name="backorders"
+                    type="number"
+                    value="0"
+                    min="0"
+                    max="1000000"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="lead">Supplier lead time <span>days</span></label
+                  ><input
+                    id="lead"
+                    name="lead"
+                    type="number"
+                    value="7"
+                    min="1"
+                    max="42"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="review">Review every <span>days</span></label
+                  ><input
+                    id="review"
+                    name="review"
+                    type="number"
+                    value="7"
+                    min="0"
+                    max="41"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="pack">Supplier pack <span>units</span></label
+                  ><input
+                    id="pack"
+                    name="pack"
+                    type="number"
+                    value="12"
+                    min="1"
+                    max="10000"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="field coverage-field">
+                  <label for="coverage">Requested cycle coverage</label
+                  ><select id="coverage" name="coverage">
+                    <option value="0.8">80% · leaner buffer</option>
+                    <option value="0.9">90% · balanced buffer</option>
+                    <option value="0.95" selected>
+                      95% · larger buffer
+                    </option></select
+                  ><small>Historical target, not a guarantee</small>
+                </div>
+              </form>
+              <p class="assumption-note">
+                Incoming units count toward the total target. If they arrive
+                late, they may not prevent a stockout. Lead time + review
+                interval must be 42 days or fewer.
+              </p>
+            </section>
+            <div id="warnings" class="warnings"></div>
+            <section class="history-panel" aria-labelledby="history-title">
+              <div class="section-intro">
+                <div>
+                  <h2 id="history-title">
+                    Would this have covered past sales?
+                  </h2>
+                  <p id="history-subtitle">
+                    Rolling historical checks, using only information available
+                    at each date.
+                  </p>
+                </div>
+                <a href="#evidence"
+                  >See the full benchmark <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div class="history-summary">
+                <div class="coverage-value">
+                  <strong id="observed-coverage">—</strong
+                  ><span id="coverage-count">Checking past cycles</span>
+                </div>
+                <div id="cycle-chart" class="cycle-chart"></div>
+                <p>
+                  Each block is one non-overlapping protection period. Covered
+                  cycles are filled; missed cycles are outlined. These checks
+                  are descriptive, not independent guarantees.
+                </p>
+              </div>
+              <details>
+                <summary>Inspect cycle-by-cycle results</summary>
+                <p class="table-hint">Scroll to compare all columns →</p>
+                <div
+                  class="table-wrap"
+                  tabindex="0"
+                  role="region"
+                  aria-label="Historical cycle results"
+                >
+                  <table>
+                    <caption class="sr-only">
+                      Historical cycle sales and stock targets
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Cycle start</th>
+                        <th scope="col">Actual sales</th>
+                        <th scope="col">Point forecast</th>
+                        <th scope="col">Target stock</th>
+                        <th scope="col">Result</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cycles-body"></tbody>
+                  </table>
+                </div>
+              </details>
+            </section>
+          </div>
+          <div class="import-help">
+            <strong>A CSV is all you need.</strong>
+            <p>
+              Columns: <code>date,sales</code>. Use YYYY-MM-DD dates, one item,
+              one row every day. No blank dates or negative sales.
+              <button id="template-bottom" class="text-button">
+                Download an example
+              </button>
+            </p>
+          </div>
+        </section>
+        <section
+          id="evidence"
+          class="view"
+          aria-labelledby="evidence-title"
+          hidden
+        >
+          <div class="page-heading">
+            <div>
+              <h1 id="evidence-title">
+                Evidence before confidence<span>.</span>
+              </h1>
+              <p>
+                A reproducible test on observed retail sales. Limits included.
+              </p>
+            </div>
+            <a class="secondary" href="./data/evaluation.json" download
+              >Download results</a
+            >
+          </div>
+          <div id="benchmark"></div>
+        </section>
+        <section id="method" class="view" aria-labelledby="method-title" hidden>
+          <div class="page-heading">
+            <div>
+              <h1 id="method-title">A forecast isn’t an order<span>.</span></h1>
+              <p>Understand the decision before committing cash.</p>
+            </div>
+          </div>
+          <div class="method-layout">
+            <article class="prose">
+              <h2>Why this exists</h2>
+              <p>
+                A supplier takes a week to deliver. You only review stock once a
+                week. Tomorrow’s sales forecast alone cannot tell you what to
+                buy: your decision must cover both periods, account for stock
+                already available, and allow for forecast errors.
+              </p>
+              <p>
+                DemandCast makes that arithmetic visible. The original project
+                estimated safety stock from variation between future point
+                forecasts. A flat prediction produced zero uncertainty, even
+                when actual sales were volatile. This workbench measures
+                historical errors instead.
+              </p>
+              <h2>How it works</h2>
+              <ol class="method-steps">
+                <li>
+                  <strong>Read complete daily sales.</strong>
+                  <p>
+                    Import one item’s history. Missing dates and negative
+                    quantities block the calculation; they can hide closures,
+                    returns, or stockouts.
+                  </p>
+                </li>
+                <li>
+                  <strong>Use a transparent baseline.</strong>
+                  <p>
+                    A trailing 28-day mean supplies the forecast. A four-week
+                    weekday alternative had identical weekly totals in the
+                    benchmark, so the extra selection step was removed.
+                  </p>
+                </li>
+                <li>
+                  <strong>Measure the errors that matter.</strong>
+                  <p>
+                    Replay fully observed protection periods. Take the requested
+                    quantile of actual period sales minus the forecast. Add only
+                    a nonnegative buffer.
+                  </p>
+                </li>
+                <li>
+                  <strong>Account for your stock.</strong>
+                  <p>
+                    Target = expected period sales + error buffer. Position = on
+                    hand + incoming − backorders. Order = max(0, target −
+                    position), rounded up to the supplier pack.
+                  </p>
+                </li>
+              </ol>
+              <h2>Where this can fail</h2>
+              <p>
+                Sales are not demand when you were out of stock. Promotions, new
+                products, supplier delays, bulk purchases, and sudden changes
+                can break historical patterns. The error windows overlap; the
+                quantile has no guaranteed future coverage.
+              </p>
+              <p>
+                This is one-item decision support for a fixed lead time. It does
+                not optimize a purchasing budget, simulate purchase orders,
+                infer lost sales, or account for expiry dates. All incoming
+                stock is assumed to arrive within the protection period; check
+                exact arrival dates separately.
+              </p>
+              <h2>What would prove the idea wrong?</h2>
+              <p>
+                If the buffer cannot improve held-out cycle coverage without
+                doubling target stock, the current mechanism is too expensive.
+                The evidence lab reports that threshold directly. A better next
+                step would be stock-availability labels and delivery-time
+                history, tested on multiple retailers.
+              </p>
+              <p>
+                <a
+                  href="https://github.com/brej-29/demandcast-inventory-optimizer/blob/main/docs/WHY.md"
+                  >Read the full rationale and 15 hard questions ↗</a
+                >
+              </p>
+            </article>
+            <aside class="formula-sheet">
+              <h2>The decision in four lines</h2>
+              <div>
+                <span>Protection period</span
+                ><strong>Lead + review days</strong>
+              </div>
+              <div>
+                <span>Target stock</span
+                ><strong>Forecast + error buffer</strong>
+              </div>
+              <div>
+                <span>Inventory position</span
+                ><strong>On hand + incoming<br />− backorders</strong>
+              </div>
+              <div>
+                <span>Order quantity</span
+                ><strong
+                  >Target − position<br />rounded to packs, at least 0</strong
+                >
+              </div>
+              <p>
+                No black box. Every input and result is included in your
+                decision export.
+              </p>
+              <a href="#planner" class="primary"
+                >Try the planner <span aria-hidden="true">→</span></a
+              >
+            </aside>
+          </div>
+        </section>
+        <footer>
+          <span>DemandCast · Thoughtful stock decisions.</span
+          ><span
+            >Browser-local. Open source.
+            <a href="#method">Know the limits.</a></span
+          >
+        </footer>
+      </main>
+    </div>
+    <noscript
+      ><div class="no-script">
+        DemandCast needs JavaScript to calculate locally. Enable it and reload.
+        No data is sent to a server.
+      </div></noscript
+    >
+  </body>
+</html>

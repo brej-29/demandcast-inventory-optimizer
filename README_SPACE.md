@@ -1,3 +1,5 @@
+> Legacy research notes: the public browser workbench and its deployment are documented in [README.md](README.md). These instructions describe the previous Streamlit dashboard.
+
 # Deploying DemandCast to Hugging Face Spaces (Streamlit)
 
 This document describes how to deploy the DemandCast dashboard to a free

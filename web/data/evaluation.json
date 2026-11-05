@@ -1,0 +1,146 @@
+{
+  "protocol": "docs/EVALUATION_PLAN.md",
+  "requestedCoverage": 0.95,
+  "horizon": 7,
+  "cyclesPerItem": 23,
+  "passed": false,
+  "conclusion": "Historical errors improved sales-cycle coverage, but at least one predeclared threshold failed. The method needs stronger data or a different buffer before claiming efficient replenishment.",
+  "summary": {
+    "naive": {
+      "label": "Last week repeated · no buffer",
+      "n": 184,
+      "coverage": 0.5163043478260869,
+      "interval": [
+        0.44450417629089245,
+        0.5874376299969585
+      ],
+      "meanTarget": 555.2391304347826,
+      "shortfall": 39547,
+      "wape": 0.7103038309114927,
+      "stockRatio": 1
+    },
+    "mean": {
+      "label": "28-day mean · no buffer",
+      "n": 184,
+      "coverage": 0.5815217391304348,
+      "interval": [
+        0.5092876457185977,
+        0.6504213857206576
+      ],
+      "meanTarget": 533.25,
+      "shortfall": 35210,
+      "wape": 0.5900618041139838,
+      "stockRatio": 1.0008287708435868
+    },
+    "weekday": {
+      "label": "4-week weekday mean · no buffer",
+      "n": 184,
+      "coverage": 0.5815217391304348,
+      "interval": [
+        0.5092876457185977,
+        0.6504213857206576
+      ],
+      "meanTarget": 533.1902173913044,
+      "shortfall": 35213,
+      "wape": 0.5900618041139838,
+      "stockRatio": 1.0007165680216858
+    },
+    "point": {
+      "label": "28-day mean · no buffer",
+      "n": 184,
+      "coverage": 0.5815217391304348,
+      "interval": [
+        0.5092876457185977,
+        0.6504213857206576
+      ],
+      "meanTarget": 533.25,
+      "shortfall": 35210,
+      "wape": 0.5900618041139838,
+      "stockRatio": 1.0008287708435868
+    },
+    "legacy": {
+      "label": "28-day mean · legacy spread buffer",
+      "n": 184,
+      "coverage": 0.5815217391304348,
+      "interval": [
+        0.5092876457185977,
+        0.6504213857206576
+      ],
+      "meanTarget": 533.25,
+      "shortfall": 35210,
+      "wape": 0.5900618041139838,
+      "stockRatio": 1.0008287708435868
+    },
+    "calibrated": {
+      "label": "28-day mean · historical error buffer",
+      "n": 184,
+      "coverage": 0.9619565217391305,
+      "interval": [
+        0.9235659531688607,
+        0.9814518916535854
+      ],
+      "meanTarget": 1624.5108695652175,
+      "shortfall": 9018,
+      "wape": 0.5900618041139838,
+      "stockRatio": 3.048958681310835
+    }
+  },
+  "items": [
+    {
+      "code": "23166",
+      "name": "MEDIUM CERAMIC TOP STORAGE JAR",
+      "coverage": 0.9565217391304348,
+      "pointCoverage": 0.4782608695652174,
+      "stockRatio": 4.139815697489673
+    },
+    {
+      "code": "84077",
+      "name": "WORLD WAR 2 GLIDERS ASSTD DESIGNS",
+      "coverage": 0.9565217391304348,
+      "pointCoverage": 0.4782608695652174,
+      "stockRatio": 2.6390509579684083
+    },
+    {
+      "code": "22616",
+      "name": "PACK OF 12 LONDON TISSUES ",
+      "coverage": 0.9565217391304348,
+      "pointCoverage": 0.6086956521739131,
+      "stockRatio": 3.4803084882624566
+    },
+    {
+      "code": "21212",
+      "name": "PACK OF 72 RETROSPOT CAKE CASES",
+      "coverage": 0.9565217391304348,
+      "pointCoverage": 0.6086956521739131,
+      "stockRatio": 2.873767403166214
+    },
+    {
+      "code": "22197",
+      "name": "SMALL POPCORN HOLDER",
+      "coverage": 1,
+      "pointCoverage": 0.5217391304347826,
+      "stockRatio": 3.4063262294588275
+    },
+    {
+      "code": "17003",
+      "name": "BROCADE RING PURSE ",
+      "coverage": 0.9565217391304348,
+      "pointCoverage": 0.782608695652174,
+      "stockRatio": 3.417435502131862
+    },
+    {
+      "code": "84879",
+      "name": "ASSORTED COLOUR BIRD ORNAMENT",
+      "coverage": 0.9130434782608695,
+      "pointCoverage": 0.5217391304347826,
+      "stockRatio": 1.9074812115691187
+    },
+    {
+      "code": "22693",
+      "name": "GROW A FLYTRAP OR SUNFLOWER IN TIN",
+      "coverage": 1,
+      "pointCoverage": 0.6521739130434783,
+      "stockRatio": 5.9571505088377075
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:4187/",
+  "formFactor": "mobile",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "fcp": 960,
+    "lcp": 960,
+    "tbt": 0,
+    "cls": 0.035817279444959174
+  },
+  "failures": [
+    {
+      "id": "document-latency-insight",
+      "title": "Document request latency",
+      "score": 0.5
+    },
+    {
+      "id": "forced-reflow-insight",
+      "title": "Forced reflow",
+      "score": 0
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 0
+    }
+  ]
+}

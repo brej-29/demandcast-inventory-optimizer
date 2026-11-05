@@ -1,0 +1,529 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T15:38:51.225Z",
+  "title": "Design System: DemandCast",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Dark Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0261 187.88)",
+          "oklch(26.43% 0.0261 187.88)",
+          "oklch(37.86% 0.0261 187.88)",
+          "oklch(49.29% 0.0261 187.88)",
+          "oklch(60.71% 0.0261 187.88)",
+          "oklch(72.14% 0.0261 187.88)",
+          "oklch(83.57% 0.0261 187.88)",
+          "oklch(95% 0.0261 187.88)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Mineral Gray",
+        "tonalRamp": [
+          "oklch(15% 0.0217 179.51)",
+          "oklch(26.43% 0.0217 179.51)",
+          "oklch(37.86% 0.0217 179.51)",
+          "oklch(49.29% 0.0217 179.51)",
+          "oklch(60.71% 0.0217 179.51)",
+          "oklch(72.14% 0.0217 179.51)",
+          "oklch(83.57% 0.0217 179.51)",
+          "oklch(95% 0.0217 179.51)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Mineral Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0034 174.48)",
+          "oklch(26.43% 0.0034 174.48)",
+          "oklch(37.86% 0.0034 174.48)",
+          "oklch(49.29% 0.0034 174.48)",
+          "oklch(60.71% 0.0034 174.48)",
+          "oklch(72.14% 0.0034 174.48)",
+          "oklch(83.57% 0.0034 174.48)",
+          "oklch(95% 0.0034 174.48)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "White Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.00)",
+          "oklch(26.43% 0.0000 0.00)",
+          "oklch(37.86% 0.0000 0.00)",
+          "oklch(49.29% 0.0000 0.00)",
+          "oklch(60.71% 0.0000 0.00)",
+          "oklch(72.14% 0.0000 0.00)",
+          "oklch(83.57% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
+        ]
+      },
+      "rail": {
+        "role": "primary",
+        "displayName": "Deep Spruce",
+        "tonalRamp": [
+          "oklch(15% 0.0446 181.64)",
+          "oklch(26.43% 0.0446 181.64)",
+          "oklch(37.86% 0.0446 181.64)",
+          "oklch(49.29% 0.0446 181.64)",
+          "oklch(60.71% 0.0446 181.64)",
+          "oklch(72.14% 0.0446 181.64)",
+          "oklch(83.57% 0.0446 181.64)",
+          "oklch(95% 0.0446 181.64)"
+        ]
+      },
+      "rail-muted": {
+        "role": "primary",
+        "displayName": "Rail Mist",
+        "tonalRamp": [
+          "oklch(15% 0.0261 171.82)",
+          "oklch(26.43% 0.0261 171.82)",
+          "oklch(37.86% 0.0261 171.82)",
+          "oklch(49.29% 0.0261 171.82)",
+          "oklch(60.71% 0.0261 171.82)",
+          "oklch(72.14% 0.0261 171.82)",
+          "oklch(83.57% 0.0261 171.82)",
+          "oklch(95% 0.0261 171.82)"
+        ]
+      },
+      "brand": {
+        "role": "primary",
+        "displayName": "Working Green",
+        "tonalRamp": [
+          "oklch(15% 0.0623 175.45)",
+          "oklch(26.43% 0.0623 175.45)",
+          "oklch(37.86% 0.0623 175.45)",
+          "oklch(49.29% 0.0623 175.45)",
+          "oklch(60.71% 0.0623 175.45)",
+          "oklch(72.14% 0.0623 175.45)",
+          "oklch(83.57% 0.0623 175.45)",
+          "oklch(95% 0.0623 175.45)"
+        ]
+      },
+      "brand-hover": {
+        "role": "primary",
+        "displayName": "Working Green Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0591 167.79)",
+          "oklch(26.43% 0.0591 167.79)",
+          "oklch(37.86% 0.0591 167.79)",
+          "oklch(49.29% 0.0591 167.79)",
+          "oklch(60.71% 0.0591 167.79)",
+          "oklch(72.14% 0.0591 167.79)",
+          "oklch(83.57% 0.0591 167.79)",
+          "oklch(95% 0.0591 167.79)"
+        ]
+      },
+      "brand-active": {
+        "role": "primary",
+        "displayName": "Working Green Pressed",
+        "tonalRamp": [
+          "oklch(15% 0.0514 171.00)",
+          "oklch(26.43% 0.0514 171.00)",
+          "oklch(37.86% 0.0514 171.00)",
+          "oklch(49.29% 0.0514 171.00)",
+          "oklch(60.71% 0.0514 171.00)",
+          "oklch(72.14% 0.0514 171.00)",
+          "oklch(83.57% 0.0514 171.00)",
+          "oklch(95% 0.0514 171.00)"
+        ]
+      },
+      "lime": {
+        "role": "secondary",
+        "displayName": "Citrus",
+        "tonalRamp": [
+          "oklch(15% 0.1195 120.76)",
+          "oklch(26.43% 0.1195 120.76)",
+          "oklch(37.86% 0.1195 120.76)",
+          "oklch(49.29% 0.1195 120.76)",
+          "oklch(60.71% 0.1195 120.76)",
+          "oklch(72.14% 0.1195 120.76)",
+          "oklch(83.57% 0.1195 120.76)",
+          "oklch(95% 0.1195 120.76)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Mineral Line",
+        "tonalRamp": [
+          "oklch(15% 0.0110 167.78)",
+          "oklch(26.43% 0.0110 167.78)",
+          "oklch(37.86% 0.0110 167.78)",
+          "oklch(49.29% 0.0110 167.78)",
+          "oklch(60.71% 0.0110 167.78)",
+          "oklch(72.14% 0.0110 167.78)",
+          "oklch(83.57% 0.0110 167.78)",
+          "oklch(95% 0.0110 167.78)"
+        ]
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Petrol Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0809 242.33)",
+          "oklch(26.43% 0.0809 242.33)",
+          "oklch(37.86% 0.0809 242.33)",
+          "oklch(49.29% 0.0809 242.33)",
+          "oklch(60.71% 0.0809 242.33)",
+          "oklch(72.14% 0.0809 242.33)",
+          "oklch(83.57% 0.0809 242.33)",
+          "oklch(95% 0.0809 242.33)"
+        ]
+      },
+      "blue-light": {
+        "role": "secondary",
+        "displayName": "Buffer Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0168 236.70)",
+          "oklch(26.43% 0.0168 236.70)",
+          "oklch(37.86% 0.0168 236.70)",
+          "oklch(49.29% 0.0168 236.70)",
+          "oklch(60.71% 0.0168 236.70)",
+          "oklch(72.14% 0.0168 236.70)",
+          "oklch(83.57% 0.0168 236.70)",
+          "oklch(95% 0.0168 236.70)"
+        ]
+      },
+      "amber": {
+        "role": "semantic",
+        "displayName": "Amber Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0945 74.33)",
+          "oklch(26.43% 0.0945 74.33)",
+          "oklch(37.86% 0.0945 74.33)",
+          "oklch(49.29% 0.0945 74.33)",
+          "oklch(60.71% 0.0945 74.33)",
+          "oklch(72.14% 0.0945 74.33)",
+          "oklch(83.57% 0.0945 74.33)",
+          "oklch(95% 0.0945 74.33)"
+        ]
+      },
+      "amber-bg": {
+        "role": "semantic",
+        "displayName": "Amber Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0350 92.82)",
+          "oklch(26.43% 0.0350 92.82)",
+          "oklch(37.86% 0.0350 92.82)",
+          "oklch(49.29% 0.0350 92.82)",
+          "oklch(60.71% 0.0350 92.82)",
+          "oklch(72.14% 0.0350 92.82)",
+          "oklch(83.57% 0.0350 92.82)",
+          "oklch(95% 0.0350 92.82)"
+        ]
+      },
+      "danger": {
+        "role": "semantic",
+        "displayName": "Clay Red",
+        "tonalRamp": [
+          "oklch(15% 0.1449 26.44)",
+          "oklch(26.43% 0.1449 26.44)",
+          "oklch(37.86% 0.1449 26.44)",
+          "oklch(49.29% 0.1449 26.44)",
+          "oklch(60.71% 0.1449 26.44)",
+          "oklch(72.14% 0.1449 26.44)",
+          "oklch(83.57% 0.1449 26.44)",
+          "oklch(95% 0.1449 26.44)"
+        ]
+      },
+      "danger-bg": {
+        "role": "semantic",
+        "displayName": "Clay Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0165 26.65)",
+          "oklch(26.43% 0.0165 26.65)",
+          "oklch(37.86% 0.0165 26.65)",
+          "oklch(49.29% 0.0165 26.65)",
+          "oklch(60.71% 0.0165 26.65)",
+          "oklch(72.14% 0.0165 26.65)",
+          "oklch(83.57% 0.0165 26.65)",
+          "oklch(95% 0.0165 26.65)"
+        ]
+      },
+      "order-paper": {
+        "role": "neutral",
+        "displayName": "Order Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0205 131.46)",
+          "oklch(26.43% 0.0205 131.46)",
+          "oklch(37.86% 0.0205 131.46)",
+          "oklch(49.29% 0.0205 131.46)",
+          "oklch(60.71% 0.0205 131.46)",
+          "oklch(72.14% 0.0205 131.46)",
+          "oklch(83.57% 0.0205 131.46)",
+          "oklch(95% 0.0205 131.46)"
+        ]
+      },
+      "source-paper": {
+        "role": "neutral",
+        "displayName": "Source Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0075 164.93)",
+          "oklch(26.43% 0.0075 164.93)",
+          "oklch(37.86% 0.0075 164.93)",
+          "oklch(49.29% 0.0075 164.93)",
+          "oklch(60.71% 0.0075 164.93)",
+          "oklch(72.14% 0.0075 164.93)",
+          "oklch(83.57% 0.0075 164.93)",
+          "oklch(95% 0.0075 164.93)"
+        ]
+      },
+      "nav-selected": {
+        "role": "primary",
+        "displayName": "Selected Route Green",
+        "tonalRamp": [
+          "oklch(15% 0.0499 170.46)",
+          "oklch(26.43% 0.0499 170.46)",
+          "oklch(37.86% 0.0499 170.46)",
+          "oklch(49.29% 0.0499 170.46)",
+          "oklch(60.71% 0.0499 170.46)",
+          "oklch(72.14% 0.0499 170.46)",
+          "oklch(83.57% 0.0499 170.46)",
+          "oklch(95% 0.0499 170.46)"
+        ]
+      },
+      "nav-selected-text": {
+        "role": "primary",
+        "displayName": "Selected Route Pale",
+        "tonalRamp": [
+          "oklch(15% 0.0508 120.46)",
+          "oklch(26.43% 0.0508 120.46)",
+          "oklch(37.86% 0.0508 120.46)",
+          "oklch(49.29% 0.0508 120.46)",
+          "oklch(60.71% 0.0508 120.46)",
+          "oklch(72.14% 0.0508 120.46)",
+          "oklch(83.57% 0.0508 120.46)",
+          "oklch(95% 0.0508 120.46)"
+        ]
+      },
+      "nav-hover": {
+        "role": "primary",
+        "displayName": "Route Hover Green",
+        "tonalRamp": [
+          "oklch(15% 0.0456 176.31)",
+          "oklch(26.43% 0.0456 176.31)",
+          "oklch(37.86% 0.0456 176.31)",
+          "oklch(49.29% 0.0456 176.31)",
+          "oklch(60.71% 0.0456 176.31)",
+          "oklch(72.14% 0.0456 176.31)",
+          "oklch(83.57% 0.0456 176.31)",
+          "oklch(95% 0.0456 176.31)"
+        ]
+      },
+      "focus": {
+        "role": "secondary",
+        "displayName": "Focus Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0831 243.69)",
+          "oklch(26.43% 0.0831 243.69)",
+          "oklch(37.86% 0.0831 243.69)",
+          "oklch(49.29% 0.0831 243.69)",
+          "oklch(60.71% 0.0831 243.69)",
+          "oklch(72.14% 0.0831 243.69)",
+          "oklch(83.57% 0.0831 243.69)",
+          "oklch(95% 0.0831 243.69)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display-desktop": {
+        "displayName": "Desktop page heading",
+        "purpose": "42px upper size of the fluid page heading; 32px at 900px and 29px at 680px."
+      },
+      "headline": {
+        "displayName": "Working section heading",
+        "purpose": "Compact headings for analysis, assumptions, and history."
+      },
+      "title": {
+        "displayName": "Supporting title",
+        "purpose": "Base third-level heading style."
+      },
+      "body": {
+        "displayName": "Base interface text",
+        "purpose": "Root typography; supporting interface copy commonly steps down to 12px."
+      },
+      "body-prose": {
+        "displayName": "Explanatory prose",
+        "purpose": "Method paragraphs with open leading and a 73ch measure."
+      },
+      "label": {
+        "displayName": "Control label",
+        "purpose": "Form labels and button text; sentence case."
+      },
+      "order-quantity": {
+        "displayName": "Order quantity",
+        "purpose": "Tabular purchase amount; 62px at 1500px and 48px at 1150px and below."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Shared easing for route and forecast reveals."
+      },
+      {
+        "name": "control-background",
+        "value": "background 0.15s",
+        "purpose": "Button and navigation background transitions."
+      },
+      {
+        "name": "view-in",
+        "value": "0.22s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Blur resolves from 2px to zero when a view appears."
+      },
+      {
+        "name": "forecast-reveal",
+        "value": "0.7s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Forecast allocation clip reveals from right-inset 100% to zero."
+      },
+      {
+        "name": "loading-pulse",
+        "value": "1s ease-in-out infinite alternate",
+        "purpose": "Skeleton opacity alternates from 1 to 0.35 while calculation is busy."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; transition: none !important; scroll-behavior: auto !important",
+        "purpose": "Applied to every element and pseudo-element under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-min",
+        "value": "1500px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1150px"
+      },
+      {
+        "name": "horizontal-navigation-max",
+        "value": "900px"
+      },
+      {
+        "name": "stacked-workspace-max",
+        "value": "680px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Import or export action; disabled until a current calculation is available.",
+      "html": "<button class=\"ds-primary\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3v13m-5-5 5 5 5-5M4 16v5h16v-5\"/></svg>Export decision CSV</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:12px 17px;border:0;border-radius:8px;background:var(--brand,#275e51);color:#fff;font:700 12px/1.55 Manrope,'Segoe UI',sans-serif;white-space:nowrap;cursor:pointer;transition:background .15s}.ds-primary svg{width:18px;height:18px;flex-shrink:0}.ds-primary:hover{background:#174737}.ds-primary:active{background:#123c30}.ds-primary:focus-visible{outline:3px solid #487ba3;outline-offset:4px}.ds-primary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Supporting downloads and synthetic example exploration.",
+      "html": "<button class=\"ds-secondary\">Explore a synthetic example</button>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 17px;border:1px solid #becfc7;border-radius:8px;background:#fff;color:var(--ink,#1c302e);font:700 12px/1.55 Manrope,'Segoe UI',sans-serif;cursor:pointer;transition:background .15s}.ds-secondary:hover{background:#eaf0ec}.ds-secondary:focus-visible{outline:3px solid #487ba3;outline-offset:4px}.ds-secondary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Underlined tertiary action within source and import guidance.",
+      "html": "<button class=\"ds-text\">Download an example CSV</button>",
+      "css": ".ds-text{padding:4px 0;border:0;background:none;color:var(--brand,#275e51);font:400 12px/1.55 Manrope,'Segoe UI',sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}.ds-text:hover{color:#163c31}.ds-text:focus-visible{outline:3px solid #487ba3;outline-offset:4px}.ds-text:disabled{opacity:.45;cursor:not-allowed}"
+    },
+    {
+      "name": "Quantity field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Labeled numerical assumption with units and optional helper text.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-incoming\">Incoming <span>units</span></label><input id=\"ds-incoming\" type=\"number\" value=\"0\" min=\"0\" step=\"1\" aria-describedby=\"ds-field-help\"><small id=\"ds-field-help\">Due within protection period</small></div>",
+      "css": ".ds-field{max-width:240px;color:var(--ink,#1c302e);font:400 14px/1.55 Manrope,'Segoe UI',sans-serif}.ds-field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}.ds-field label span{color:var(--muted,#52635f);font-weight:400;margin-left:2px}.ds-field input{box-sizing:border-box;width:100%;height:42px;border:1px solid #c8d5cd;border-radius:7px;background:#fff;color:var(--ink,#1c302e);padding:8px 11px;font:400 13px/1.55 Manrope,'Segoe UI',sans-serif;font-variant-numeric:tabular-nums;caret-color:var(--brand,#275e51)}.ds-field input:hover{border-color:#7c9b89}.ds-field input:focus-visible{outline:3px solid #487ba3;outline-offset:4px}.ds-field small{display:block;font-size:12px;color:var(--muted,#52635f);margin-top:6px;line-height:1.5}@media(max-width:680px){.ds-field input{font-size:16px}}"
+    },
+    {
+      "name": "Workspace navigation",
+      "kind": "nav",
+      "refersTo": "navigation-selected",
+      "description": "Spruce navigation with a labeled selected route; phone hides decorative icons.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Workspace\"><a href=\"#planner\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M4 7h16M4 17h16M8 4v6m8 4v6\"/></svg>Order planner</a><a href=\"#evidence\">Evidence lab</a><a href=\"#method\">How it works</a></nav>",
+      "css": ".ds-nav{display:grid;gap:6px;padding:18px;background:var(--rail,#173d37);max-width:216px;font:600 12px/1.55 Manrope,'Segoe UI',sans-serif}.ds-nav a{display:flex;align-items:center;gap:12px;padding:12px 13px;color:var(--rail-muted,#bad0c8);text-decoration:none;border-radius:8px;transition:background .15s}.ds-nav a[aria-current]{background:#31584b;color:#f4ffd9}.ds-nav svg{width:18px;height:18px;color:var(--lime,#d5ed91);flex-shrink:0}.ds-nav a:hover{background:#294e45;color:#fff}.ds-nav a:focus-visible{outline:3px solid #487ba3;outline-offset:4px}@media(max-width:680px){.ds-nav{max-width:none;grid-template-columns:1.1fr 1fr 1fr;gap:5px}.ds-nav a{justify-content:center;padding:10px 7px}.ds-nav svg{display:none}}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}"
+    },
+    {
+      "name": "Local computation badge",
+      "kind": "chip",
+      "description": "Noninteractive textual connection/computation status.",
+      "html": "<span class=\"ds-local\"><span aria-hidden=\"true\"></span>Local computation</span>",
+      "css": ".ds-local{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border-radius:6px;background:#f1f7ee;color:#3e5f32;font:400 12px/1.55 Manrope,'Segoe UI',sans-serif}.ds-local>span{width:6px;height:6px;border-radius:50%;background:#56803b;flex-shrink:0}"
+    },
+    {
+      "name": "Analysis panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat white container for analysis and historical checks.",
+      "html": "<section class=\"ds-panel\"><h2>Would this have covered past sales?</h2><p>Requested 95% · 14-day cycles · past data only at each decision</p><div class=\"ds-panel-value\">100%<span>12 of 12 cycles covered</span></div></section>",
+      "css": ".ds-panel{padding:23px 24px;border-radius:var(--radius,14px);background:#fff;color:var(--ink,#1c302e);font:400 14px/1.55 Manrope,'Segoe UI',sans-serif}.ds-panel h2{margin:0;font-size:17px;font-weight:750;line-height:1.4;letter-spacing:-.02em}.ds-panel p{margin:4px 0 24px;color:var(--muted,#52635f);font-size:12px}.ds-panel-value{font-size:29px;font-weight:650;letter-spacing:-.025em}.ds-panel-value span{display:block;font-size:12px;font-weight:400;letter-spacing:normal;color:var(--muted,#52635f);margin-top:4px}"
+    },
+    {
+      "name": "Order calculation sheet",
+      "kind": "custom",
+      "refersTo": "order-sheet",
+      "description": "Pale green purchase quantity and ledger with pack rounding visible.",
+      "html": "<section class=\"ds-order\"><h2>Your order, explained</h2><div class=\"ds-order-amount\"><strong>144</strong><span>units to order</span></div><p class=\"ds-order-state\">Suggested purchase · review first</p><dl><div><dt>Expected sales</dt><dd>335.5</dd></div><div><dt>Historical error buffer</dt><dd>+ 64</dd></div><div class=\"ds-subtotal\"><dt>Target stock</dt><dd>400</dd></div><div><dt>Inventory position</dt><dd>− 260</dd></div><div class=\"ds-order-total\"><dt>Pack-rounded order</dt><dd>144</dd></div></dl><p class=\"ds-pack\">12 packs × 12 units · target rounded up to whole units</p></section>",
+      "css": ".ds-order{max-width:310px;padding:22px;border-radius:var(--radius,14px);background:#e5eddf;color:var(--ink,#1c302e);font:400 12px/1.55 Manrope,'Segoe UI',sans-serif}.ds-order h2{margin:0;font-size:15px;font-weight:750;line-height:1.4;letter-spacing:-.02em}.ds-order-amount{display:flex;align-items:baseline;gap:10px;margin-top:16px}.ds-order-amount strong{font-size:55px;line-height:1.15;letter-spacing:-.035em;font-weight:650;font-variant-numeric:tabular-nums}.ds-order-state{color:#456040;margin:6px 0 0}.ds-order dl{margin:21px 0 0;font-variant-numeric:tabular-nums}.ds-order dl>div{display:flex;justify-content:space-between;gap:15px;padding:6px 0}.ds-order dt{color:#41583e}.ds-order dd{margin:0;font-weight:650;white-space:nowrap}.ds-order .ds-subtotal{border-top:1px solid #becdb4;margin-top:6px;padding-top:12px}.ds-order .ds-order-total{border-top:1px solid #becdb4;margin-top:9px;padding-top:12px;font-weight:750}.ds-pack{color:var(--muted,#52635f);margin:8px 0 16px}@media(max-width:680px){.ds-order-amount strong{font-size:48px}.ds-order dl>div{padding:7px 0;align-items:baseline}}"
+    },
+    {
+      "name": "Forecast evidence marks",
+      "kind": "custom",
+      "description": "Solid observations, dashed forecast, pale period-buffer allocation, and a labeled boundary.",
+      "html": "<figure class=\"ds-forecast\"><svg viewBox=\"0 0 400 160\" role=\"img\" aria-labelledby=\"ds-chart-title ds-chart-desc\"><title id=\"ds-chart-title\">Observed sales and forecast</title><desc id=\"ds-chart-desc\">Solid blue observations end at a boundary. A dashed green point forecast and pale buffer allocation extend into the future.</desc><path d=\"M30 40H380M30 80H380M30 120H380\" stroke=\"#e7eeea\" fill=\"none\"/><rect x=\"280\" y=\"24\" width=\"100\" height=\"96\" fill=\"#f3f7f2\"/><path d=\"M280 66H380V82H280Z\" fill=\"#d9e9ed\"/><path d=\"M30 92 48 68 66 104 84 54 102 84 120 60 138 92 156 72 174 106 192 64 210 88 228 48 246 80 264 70 280 82\" stroke=\"#34678c\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><path d=\"M280 82H380\" stroke=\"#275e51\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><path d=\"M280 24V120\" stroke=\"#93ac9f\" stroke-dasharray=\"3 4\"/><text x=\"288\" y=\"14\">Forecast →</text></svg><figcaption>Buffer protects the <strong>period total</strong>; it is not a daily confidence interval.</figcaption></figure>",
+      "css": ".ds-forecast{margin:0;padding:23px 24px;background:#fff;border-radius:var(--radius,14px);font:400 12px/1.7 Manrope,'Segoe UI',sans-serif;color:var(--muted,#52635f)}.ds-forecast svg{display:block;width:100%;height:auto}.ds-forecast text{font:400 12px Manrope,sans-serif;fill:var(--muted,#52635f)}.ds-forecast figcaption{max-width:70ch;margin-top:13px}"
+    },
+    {
+      "name": "Warning and blocking error",
+      "kind": "custom",
+      "refersTo": "warning",
+      "description": "Readable semantic status surfaces; a blocking error keeps export unavailable.",
+      "html": "<div class=\"ds-alerts\"><p class=\"ds-warning\">Stock may run out before delivery. Review incoming dates before buying.</p><p class=\"ds-warning ds-error\" role=\"alert\">Import needs attention: use one complete row per day.</p></div>",
+      "css": ".ds-alerts{display:grid;gap:8px}.ds-warning{margin:0;padding:13px 16px;border-radius:8px;background:var(--amber-bg,#fff7dd);color:var(--amber,#785009);font:400 12px/1.55 Manrope,'Segoe UI',sans-serif}.ds-error{background:var(--danger-bg,#fff0ee);color:var(--danger,#a43732)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Mineral Planning Room",
+    "overview": "A calm purchasing desk built around readable evidence. Deep spruce anchors navigation; a cool mineral work surface holds white analysis panels and a pale green order sheet. Petrol-blue observed sales, a dashed green forecast, and restrained citrus details give each visual mark a job.\n\nThe interface is an operating tool: compact labels, generous separation between working sections, and aligned numerical rows. The order quantity has the strongest numerical emphasis, while its arithmetic and qualifications remain visible. Evidence and explanations use the same materials and type as the planner.",
+    "keyCharacteristics": [
+      "A dark spruce frame around a light mineral workspace.",
+      "Flat tonal surfaces with gently rounded rectangular edges.",
+      "Manrope typography and tabular figures for quantities.",
+      "Distinct visual marks for observations, forecasts, buffers, and historical outcomes.",
+      "Short functional motion with a reduced-motion alternative."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Marks Rule",
+        "body": "Pair color with a line style, label, or written outcome: solid observations, dashed forecasts, filled buffer allocation, and explicit Covered / Missed table results.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Use tonal surfaces and dividers to establish hierarchy; retain the shadow-free working desk.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the spruce frame, mineral workspace, and pale green decision sheet as distinct functional surfaces.",
+      "Do keep quantities tabular and calculation values right aligned, including on phone.",
+      "Do pair chart colors and historical outcomes with line styles and explicit labels.",
+      "Do keep source identity, dates, historical qualifications, and the period-buffer explanation readable beside the evidence.",
+      "Do retain keyboard focus, scrollable comparison tables, and reduced-motion behavior."
+    ],
+    "donts": [
+      "Don't replace the operating surface with decorative metric cards, large gradients, or floating shadows.",
+      "Don't present the buffer allocation as a daily confidence interval or historical coverage as guaranteed future service.",
+      "Don't hide the order arithmetic or collapse comparison columns to make a phone layout fit.",
+      "Don't replace labeled phone navigation with icon-only destinations.",
+      "Don't use citrus as a dominant panel fill or introduce an unrelated display font."
+    ]
+  }
+}
