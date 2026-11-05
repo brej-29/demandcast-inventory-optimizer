@@ -32,3 +32,13 @@ artifacts/reports/
 # Kaggle credentials (never commit)
 kaggle.json
 .kaggle/
+
+# Workbench tooling and local QA
+node_modules/
+playwright-report/
+test-results/
+.impeccable/review/
+.impeccable/mocks/
+.pytest_cache/
+.cache/
+*.local.json
