@@ -36,4 +36,4 @@ The bounded credential-pattern scan reports filenames and key types, never possi
 
 GitHub Pages is enabled with workflow publishing, public access and enforced HTTPS. Default-branch publication and live smoke results will be recorded here after the workflow completes.
 
-The initial remote verification run passed core tests, evaluation reproduction and build, then stalled installing browser binaries. It was cancelled and replaced with the runner's preinstalled stable Chrome via Playwright's supported browser channel. Browser and audit jobs have explicit timeouts; all product checks remain required.
+The initial remote verification run passed every check, including E2E and mobile quality. Browser installation alone took 8 minutes 52 seconds; the run completed successfully just before a cancellation attempt could take effect. Subsequent runs use the runner's preinstalled stable Chrome via Playwright's supported browser channel. Browser and audit jobs have explicit timeouts; all product checks remain required. [Initial green run](https://github.com/brej-29/demandcast-inventory-optimizer/actions/runs/42059530502).
