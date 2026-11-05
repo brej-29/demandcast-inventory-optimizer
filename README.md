@@ -99,4 +99,4 @@ Loaded data and calculations work after disconnecting. Offline reload and new be
 
 The efficient-buffer claim is unsupported. Obtain consented availability, reconciled transactions, promotions and actual delivery history; freeze a multi-retailer holdout and compare methods at equal stock budgets. A simpler spreadsheet workflow should win if it produces the same decisions with less work.
 
-Code: [MIT](LICENSE). Aggregate data: [Daqing Chen, UCI Online Retail, CC BY 4.0](https://doi.org/10.24432/C5BW33). Typeface: [Manrope, SIL Open Font License](web/fonts/OFL.txt).
+Code: [MIT](LICENSE). Aggregate data: [Daqing Chen, UCI Online Retail](https://doi.org/10.24432/C5BW33), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Typeface: [Manrope, SIL Open Font License](web/fonts/OFL.txt).
