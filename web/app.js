@@ -1,3 +1,4 @@
+import { createDesk } from "./desk.js";
 import { parseCSV, decisionCSV, mean, CONFIG } from "./engine.js";
 
 const $ = (id) => document.getElementById(id);
@@ -34,6 +35,8 @@ let series = [],
   slowTimer,
   worker,
   currentSource = "steady";
+const desk = createDesk({ getSeries: () => series, getResult: () => result, getSettings: settings,
+  restore: values => { for (const [id, value] of Object.entries(values)) $(id).value = value; recalculate(); }, download: exportFile });
 function createWorker() {
   try {
     worker = new Worker(new URL("./worker.js", import.meta.url), {
@@ -50,7 +53,7 @@ function createWorker() {
         fail(data.error);
         return;
       }
-      result = data.result;
+      result = data.result; desk.update();
       renderResult();
       $("export").disabled = false;
       $("app-status").textContent =
@@ -81,7 +84,7 @@ function settings() {
   );
 }
 function invalidate() {
-  result = null;
+  result = null; desk.update();
   $("export").disabled = true;
   $("order-qty").textContent = "—";
   $("order-state").textContent = "Calculation unavailable";
@@ -160,7 +163,7 @@ function synthetic(kind = "steady") {
   });
 }
 function loadSeries(data, name, label) {
-  series = data;
+  series = data; desk.reset();
   $("series-name").textContent = name;
   $("source-label").textContent = label;
   $("date-range").textContent =
@@ -229,7 +232,7 @@ async function loadExample() {
 }
 $("example").addEventListener("change", loadExample);
 $("settings").addEventListener("input", recalculate);
-$("settings").addEventListener("change", recalculate);
+// The input event covers numeric fields and selects. Avoid recalculating again on blur.
 $("settings").addEventListener("submit", (e) => e.preventDefault());
 for (const id of ["upload", "empty-upload"])
   $(id).onclick = () => $("file").click();
@@ -248,7 +251,7 @@ $("file").onchange = async (e) => {
     $("app-status").textContent =
       `Imported ${parsed.length} days of sales from ${file.name}.`;
   } catch (error) {
-    series = [];
+    series = []; desk.reset();
     $("workspace").hidden = true;
     $("empty").hidden = false;
     $("series-name").textContent = "No valid dataset";
@@ -264,7 +267,7 @@ $("clear").onclick = () => {
   clearTimeout(timer);
   clearTimeout(timeout);
   clearTimeout(slowTimer);
-  series = [];
+  series = []; desk.reset();
   invalidate();
   $("workspace").hidden = true;
   $("empty").hidden = false;

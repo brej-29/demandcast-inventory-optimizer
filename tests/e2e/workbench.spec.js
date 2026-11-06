@@ -199,3 +199,54 @@ test("responsive screenshots: phone, tablet, desktop; no horizontal overflow", a
     });
   }
 });
+
+test('scenario comparison restores assumptions, invalidates saves, and clears across datasets', async ({ page }) => {
+  await page.goto('./'); await ready(page);
+  const initial = await page.locator('#order-qty').innerText();
+  await page.getByLabel('Scenario name', {exact:true}).fill('Baseline');
+  await page.getByRole('button', {name:'Save current scenario'}).click();
+  await page.locator('#onHand').fill('0'); await ready(page);
+  await page.getByRole('button', {name:'Restore Baseline',exact:true}).click(); await ready(page);
+  await expect(page.locator('#order-qty')).toHaveText(initial);
+  await page.locator('#lead').fill('0');
+  await expect(page.locator('#save-scenario')).toBeDisabled();
+  await page.locator('#lead').fill('7'); await ready(page);
+  await page.locator('#example').selectOption('shock'); await ready(page);
+  await expect(page.locator('#scenario-rows tr')).toHaveCount(0);
+});
+test('sales ledger filters, paginates and exports loaded data', async ({page}) => {
+  await page.goto('./'); await ready(page);
+  await page.getByText('Explore daily sales', {exact:true}).click();
+  await expect(page.locator('#sales-rows tr')).toHaveCount(20);
+  await page.getByRole('button',{name:'Next page'}).click();
+  await expect(page.locator('#sales-page')).toContainText('Page 2');
+  await page.getByLabel('Filter dates').fill('2025-02');
+  await expect(page.locator('#sales-summary')).toContainText('28 matching days');
+  await expect(page.locator('#sales-page')).toContainText('Page 1');
+  await page.getByLabel('Filter dates').fill('no match');
+  await expect(page.locator('#sales-rows tr')).toHaveCount(0);
+  const download = page.waitForEvent('download');
+  await page.getByRole('button',{name:'Export loaded sales'}).click();
+  const csv = await readFile(await (await download).path(), 'utf8');
+  expect(csv.split('\n')).toHaveLength(366);
+  expect(csv).toContain('date,sales');
+});
+
+test('scenario limit, safe names, removal and reduced motion remain accessible', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('./'); await ready(page);
+  for (const name of ['<b>Baseline</b>', 'Delivery', 'Coverage', 'Pack']) {
+    await page.getByLabel('Scenario name',{exact:true}).fill(name);
+    await page.locator('#save-scenario').click();
+  }
+  await expect(page.locator('#save-scenario')).toBeDisabled();
+  await expect(page.locator('#scenario-rows b')).toHaveCount(0);
+  await page.getByText('Explore daily sales',{exact:true}).click();
+  expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations).toEqual([]);
+  expect(await page.locator('#scenario-rows tr').first().evaluate(el => getComputedStyle(el).animationName)).toBe('none');
+  await page.getByRole('button',{name:'Remove Pack',exact:true}).click();
+  await expect(page.locator('#scenario-rows tr')).toHaveCount(3);
+  await expect(page.locator('#save-scenario')).toBeEnabled();
+  await page.getByRole('button',{name:'Clear',exact:true}).click();
+  await expect(page.locator('#scenario-rows tr')).toHaveCount(0);
+});

@@ -100,3 +100,7 @@ Loaded data and calculations work after disconnecting. Offline reload and new be
 The efficient-buffer claim is unsupported. Obtain consented availability, reconciled transactions, promotions and actual delivery history; freeze a multi-retailer holdout and compare methods at equal stock budgets. A simpler spreadsheet workflow should win if it produces the same decisions with less work.
 
 Code: [MIT](LICENSE). Aggregate data: [Daqing Chen, UCI Online Retail](https://doi.org/10.24432/C5BW33), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Typeface: [Manrope, SIL Open Font License](web/fonts/OFL.txt).
+
+## Scenario comparison and sales ledger
+
+The planner includes a session-only comparison desk for up to four named assumption snapshots. Restore recalculates through the existing worker; saved rows are historical snapshots, not live recommendations. Dataset changes and Clear discard snapshots. No sales or scenarios are persisted or transmitted. A date-filtered, paginated ledger exposes all loaded daily observations and exports the complete dataset, independent of the current filter.

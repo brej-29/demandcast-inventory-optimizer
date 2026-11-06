@@ -16,3 +16,7 @@ Headings use light-to-medium Manrope with tight tracking; purchasing quantities 
 
 Route entrances use a short translation transition at full text opacity. Buttons have tactile pressed states; fields and table rows provide local feedback. No continuous decorative animation is introduced. Reduced motion disables transitions and animation. Keyboard focus, labels, source qualifications, calculation arithmetic, and error states remain visible. Keep future changes presentation-only unless explicitly authorized.
 
+
+## Working tools
+
+The scenario desk uses a comparison table rather than decorative cards. Up to four named snapshots remain in memory for the loaded dataset; restoring one recalculates the decision. The sales ledger uses native disclosure, date filtering, 20-row pagination, and complete-data CSV export. New rows and disclosure controls use brief translation-only motion, disabled with reduced motion. Atmospheric shading is static and limited to the workspace and decision sheet; it adds no animation loop or network dependency.

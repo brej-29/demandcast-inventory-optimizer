@@ -1661,3 +1661,25 @@ summary { min-height: 36px; }
 }
 @media (prefers-reduced-motion: reduce) { .view { animation: none; } }
 
+
+/* Working tools: calm surfaces, local feedback and bounded motion. */
+.shell { background: radial-gradient(ellipse at 90% 0%, #ead9c733, transparent 45%); }
+.decision-desk { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 28px; }
+.desk-toolbar { display: flex; align-items: end; gap: 16px; margin-block: 22px 16px; flex-wrap: wrap; }
+.desk-toolbar .field { flex: 1; min-width: 180px; max-width: 360px; }
+#desk-status, #sales-summary, #sales-page { font-size: 12px; color: var(--muted); }
+.decision-desk table { background: #fffefa; }
+.decision-desk td .text-button + .text-button { margin-left: 18px; }
+.sales-ledger { margin-top: 24px; }
+.sales-ledger summary { font-size: 14px; font-weight: 700; padding-block: 12px; }
+.ledger-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+#scenario-rows tr { animation: scenario-in .3s var(--ease); }
+.sales-ledger[open] .desk-toolbar { animation: scenario-in .3s var(--ease); }
+@keyframes scenario-in { from { transform: translateY(5px); } to { transform: none; } }
+.chart .forecast-area path[stroke] { stroke: var(--brand); }
+.order-sheet { background: radial-gradient(ellipse at top right, #3e5057, transparent 70%), var(--decision); }
+@media (max-width: 680px) { .desk-toolbar { align-items: stretch; flex-direction: column; } .desk-toolbar .field { max-width: none; } .ledger-pagination { flex-wrap: wrap; } }
+@media (prefers-reduced-motion: reduce) { #scenario-rows tr, .sales-ledger[open] .desk-toolbar { animation: none; } }
+/* Reserve calculation feedback space so controls do not move during input blur. */
+#loading { min-height: 52px; }
+#loading[hidden] { display: flex !important; visibility: hidden; }
