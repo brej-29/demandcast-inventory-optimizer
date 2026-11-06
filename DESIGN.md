@@ -14,4 +14,5 @@ Headings use light-to-medium Manrope with tight tracking; purchasing quantities 
 
 ## Interaction and accessibility
 
-Route entrances use a short opacity and translation transition. Buttons have tactile pressed states; fields and table rows provide local feedback. No continuous decorative animation is introduced. Reduced motion disables transitions and animation. Keyboard focus, labels, source qualifications, calculation arithmetic, and error states remain visible. Keep future changes presentation-only unless explicitly authorized.
+Route entrances use a short translation transition at full text opacity. Buttons have tactile pressed states; fields and table rows provide local feedback. No continuous decorative animation is introduced. Reduced motion disables transitions and animation. Keyboard focus, labels, source qualifications, calculation arithmetic, and error states remain visible. Keep future changes presentation-only unless explicitly authorized.
+
